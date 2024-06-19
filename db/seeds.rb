@@ -7,3 +7,31 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.delete_all
+Booking.delete_all
+Reservation.delete_all
+Listing.delete_all
+
+puts "user being create"
+User.create!(email: "admin@test.com", password: "azerty")
+puts "user created!"
+
+puts "listings being create"
+Listing.create!(num_rooms: 2)
+Listing.create!(num_rooms: 1)
+Listing.create!(num_rooms: 3)
+puts "listings created!"
+
+puts "new bookings"
+Booking.create!(listing_id: Listing.first.id, start_date: "2016-10-10".to_date, end_date: "2016-10-15".to_date)
+Booking.create!(listing_id: Listing.first.id, start_date: "2016-10-16".to_date, end_date: "2016-10-20".to_date)
+Booking.create!(listing_id: Listing.second.id, start_date: "2016-10-15".to_date, end_date: "2016-10-20".to_date)
+puts "Bookings created"
+
+puts "new reservations"
+Reservation.create!(listing_id: Listing.first.id, start_date: "2016-10-11".to_date, end_date: "2016-10-13".to_date)
+Reservation.create!(listing_id: Listing.first.id, start_date: "2016-10-13".to_date, end_date: "2016-10-15".to_date)
+Reservation.create!(listing_id: Listing.first.id, start_date: "2016-10-16".to_date, end_date: "2016-10-20".to_date)
+Reservation.create!(listing_id: Listing.second.id, start_date: "2016-10-15".to_date, end_date: "2016-10-18".to_date)
+puts "all set!"

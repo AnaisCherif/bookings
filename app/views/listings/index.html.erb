@@ -1,0 +1,14 @@
+<div class="container">
+
+<p>{</p>
+<p>"listings": [</p>
+<% @listings.each do |listing| %>
+<p>{</p>
+<p>"id": <%= listing.id %></p>
+<p>"num_rooms": <%= listing.num_rooms %></p>
+<p>},</p>
+<% end %>
+<p>]</p>
+<p>}</p>
+
+</div>
